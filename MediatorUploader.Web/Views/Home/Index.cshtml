@@ -1,0 +1,21 @@
+﻿@model FileInfo[]
+@{
+    ViewBag.Title = "Upload Files";
+    Layout = "_Layout.cshtml";
+}
+<h2>@ViewBag.Title</h2>
+
+<ul>
+    @foreach (var file in Model)
+    {
+        <li>@file.Name [@file.Length]</li>
+    }
+</ul>
+
+@using (Html.BeginForm(nameof(HomeController.Upload), "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div><input type="file" name="File" /></div>
+    <div><input type="file" name="Files" /></div>
+    <div><input type="file" name="Files" /></div>
+    <button type="submit">Upload</button>
+}
