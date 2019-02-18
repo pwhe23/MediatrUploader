@@ -24,7 +24,7 @@ namespace MediatorUploader.Web
             RegisterRoutes(RouteTable.Routes);
             ModelBinders.Binders.DefaultBinder = new CustomModelBinder();
 
-            var assemblies = new[] {typeof(UploadFile).Assembly};
+            var assemblies = new[] {typeof(IAppContext).Assembly};
 
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
